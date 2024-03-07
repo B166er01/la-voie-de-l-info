@@ -45,7 +45,7 @@ const ContactFormEmail: React.FC<Readonly<ContactFormEmailProps>> = ({
             Verfier vote compte sur <strong>La Voie De L Info</strong>
           </Heading>
 
-          <Text>
+          <Text className='text-center'>
             Clicker sur le bouton pour compléter votre enregistrement
           </Text>
 
