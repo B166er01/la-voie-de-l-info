@@ -5,6 +5,7 @@ const ForgotPasswordPage = () => {
   return (
     <div className='flex flex-col items-center justify-center w-full h-screen'>
       <h1 className='mb-6 text-4xl'>Mot de passe oublié</h1>
+      <p>doomage</p>
       <ForgotPasswordForm />
     </div>
   )
