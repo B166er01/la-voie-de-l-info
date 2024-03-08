@@ -38,7 +38,7 @@ const ForgotPasswordForm = () => {
     <div className="p-6 border shadow-xl">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col   gap-y-2  w-[300px] "
+        className="flex flex-col   gap-y-2  w-[280px] lg:w-[320px]"
       >
         <div className="relative mt-3">
           <input
@@ -50,7 +50,7 @@ const ForgotPasswordForm = () => {
           />
           <label
             htmlFor="email"
-            className="absolute z-20 px-1 text-xs capitalize transition-all bg-white text-primaryGray left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-placeholder-shown:text-sm peer-focus:text-xs peer-focus:text-primaryBlue peer-placeholder-shown:-z-10 peer-focus:z-20"
+            className="absolute z-20 px-1 text-sm capitalize transition-all bg-white text-primaryGray left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-placeholder-shown:text-base peer-focus:text-sm peer-focus:text-primaryBlue peer-placeholder-shown:-z-10 peer-focus:z-20"
           >
             Email
           </label>

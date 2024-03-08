@@ -34,10 +34,9 @@ const RegisterForm = () => {
   }
 
   return (
-
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col p-6 border shadow-xl gap-y-2  w-[280px] "
+      className="flex flex-col p-6 border shadow-xl gap-y-2  w-[280px] lg:w-[320px]"
     >
       <div className="relative mt-3">
         <input
@@ -45,11 +44,11 @@ const RegisterForm = () => {
           id="name"
           type="name"
           placeholder="Name"
-          className="relative  z-10 w-full p-2 bg-transparent border-2  rounded outline-none peer  placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] focus:border-primaryBlue"
+          className="relative  z-10 w-full p-2 bg-transparent border-2 text-lg  rounded outline-none peer  placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] focus:border-primaryBlue"
         />
         <label
           htmlFor="name"
-          className="absolute z-20 px-1 text-xs capitalize transition-all bg-white text-primaryGray left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-placeholder-shown:text-sm peer-focus:text-xs peer-focus:text-primaryBlue peer-placeholder-shown:-z-10 peer-focus:z-20"
+          className="absolute z-20 px-1 text-sm capitalize transition-all bg-white text-primaryGray left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-placeholder-shown:text-base peer-focus:text-sm peer-focus:text-primaryBlue peer-placeholder-shown:-z-10 peer-focus:z-20"
         >
           Nom
         </label>
@@ -64,11 +63,11 @@ const RegisterForm = () => {
           id="email"
           type="email"
           placeholder="Email"
-          className="relative  z-10 w-full p-2 bg-transparent border-2  rounded outline-none peer  placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] focus:border-primaryBlue"
+          className="relative  z-10 w-full p-2 bg-transparent border-2 text-lg  rounded outline-none peer  placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] focus:border-primaryBlue"
         />
         <label
           htmlFor="email"
-          className="absolute z-20 px-1 text-xs capitalize transition-all bg-white left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-placeholder-shown:text-sm peer-focus:text-xs text-primaryGray peer-focus:text-primaryBlue peer-placeholder-shown:-z-10 peer-focus:z-20"
+          className="absolute z-20 px-1 text-sm capitalize transition-all bg-white left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-placeholder-shown:text-base peer-focus:text-sm text-primaryGray peer-focus:text-primaryBlue peer-placeholder-shown:-z-10 peer-focus:z-20"
         >
           Email
         </label>
@@ -83,11 +82,11 @@ const RegisterForm = () => {
           id="password"
           type={isPasswordVisible ? 'text' : 'password'}
           placeholder="Password"
-          className="relative  z-10 w-full p-2 bg-transparent border-2  rounded outline-none peer  placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(239,239,239)] focus:border-primaryBlue"
+          className="relative  z-10 w-full p-2 bg-transparent border-2 text-lg  rounded outline-none peer  placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(239,239,239)] focus:border-primaryBlue"
         />
         <label
           htmlFor="password"
-          className="absolute z-20 px-1 text-xs capitalize transition-all bg-white left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-placeholder-shown:text-sm peer-focus:text-xs text-primaryGray peer-focus:text-primaryBlue peer-placeholder-shown:-z-10 peer-focus:z-20"
+          className="absolute z-20 px-1 text-sm capitalize transition-all bg-white left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-placeholder-shown:text-base peer-focus:text-sm text-primaryGray peer-focus:text-primaryBlue peer-placeholder-shown:-z-10 peer-focus:z-20"
         >
           Mot de passe
         </label>
@@ -109,11 +108,11 @@ const RegisterForm = () => {
           id="confirmPassword"
           type={isPasswordVisible ? 'text' : 'password'}
           placeholder="Confirm password"
-          className="relative  z-10 w-full p-2 bg-transparent border-2  rounded outline-none peer  placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(239,239,239)] focus:border-primaryBlue"
+          className="relative  z-10 w-full p-2 bg-transparent border-2 text-lg  rounded outline-none peer  placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(239,239,239)] focus:border-primaryBlue"
         />
         <label
           htmlFor="confirmPassword"
-          className="absolute z-20 px-1 text-xs capitalize transition-all bg-white left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-placeholder-shown:text-sm peer-focus:text-xs text-primaryGray peer-focus:text-primaryBlue peer-placeholder-shown:-z-10 peer-focus:z-20"
+          className="absolute z-20 px-1 text-sm capitalize transition-all bg-white left-2 peer-placeholder-shown:top-3 peer-focus:-top-2 -top-2 peer-placeholder-shown:text-base peer-focus:text-sm text-primaryGray peer-focus:text-primaryBlue peer-placeholder-shown:-z-10 peer-focus:z-20"
         >
           Comfirmation
         </label>
