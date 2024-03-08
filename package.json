@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "@stripe/stripe-js": "^3.0.7",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.350.0",
@@ -23,6 +24,7 @@
     "react-loader-spinner": "^6.1.6",
     "resend": "^3.2.0",
     "sonner": "^1.4.3",
+    "stripe": "^14.20.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
