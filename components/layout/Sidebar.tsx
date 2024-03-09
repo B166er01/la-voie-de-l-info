@@ -31,7 +31,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
   return (
     <>
       <div
-        className={`w-52 h-[calc(100vh-80px)] fixed z-50 bg-white top-[70px] "left-0" transition-transform  ${
+        className={`w-52 h-[calc(100vh-80px)] fixed z-50 bg-white top-[80px] "left-0" transition-transform  ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-96'
         }`}
       >
