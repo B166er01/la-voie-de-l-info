@@ -58,7 +58,7 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
       />
 
       <header
-        className="fixed top-0 left-0 z-50 w-full h-[70px] bg-white"
+        className="fixed top-0 left-0 z-50 w-full h-[80px] bg-white"
         ref={headerRef}
       >
         <nav className="relative flex items-center justify-between w-full h-full gap-3 p-3">
@@ -76,7 +76,7 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
             />
 
             {isMobileScreen ? (
-              <p className='hidden text-xl sm:inline-block'>La Voie De L&rsquo;Info</p>
+              <p className='hidden text-2xl sm:inline-block'>La Voie De L&rsquo;Info</p>
             ) : (
               <div className={`${showTitle ? 'hidden' : 'flex flex-grow '}`}>
                 <ul className="hidden gap-4 text-xl capitalize lg:text-2xl lg:flex">
@@ -97,12 +97,12 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
 
           <div
             className={`absolute top-[200%] left-1/2 -translate-x-[50%]  text-6xl transition ${
-              showTitle && '-translate-y-32 scale-75'
+              showTitle && '-translate-y-40 scale-75'
             } ${isMobileScreen && 'hidden'}`}
             ref={titleRef}
           >
             <div className="w-full text-center">
-              <h1 className="text-5xl lg:text-6xl">La Voie De L&rsquo;Info</h1>
+              <h1 className="text-4xl lg:text-5xl">La Voie De L&rsquo;Info</h1>
               <p className="text-lg">Votre fenêtre sur l&rsquo;actualité</p>
             </div>
           </div>
