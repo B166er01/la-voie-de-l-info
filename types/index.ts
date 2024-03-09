@@ -42,3 +42,28 @@ export interface CardSubscriptionProps {
   }
   userEmail: string // Assuming userEmail is a string, update accordingly
 }
+
+
+
+// Subcategory
+export interface TSubcategory {
+  _id?: string
+  name: string
+}
+// Category
+export interface TCategory {
+  _id?: string
+  name: string
+  sub: TSubcategory[]
+}
+
+
+export interface SearchInputProps {
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export interface ISidebarProps {
+  isMenuOpen: boolean
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+  cat: TCategory[]
+}

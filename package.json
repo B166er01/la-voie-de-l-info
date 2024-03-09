@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.0",
     "@hookform/resolvers": "^3.3.4",
     "@stripe/stripe-js": "^3.0.7",
     "bcryptjs": "^2.4.3",
+    "gsap": "^3.12.5",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.350.0",
     "mongoose": "^8.2.1",

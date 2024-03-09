@@ -1,13 +1,12 @@
-export default function Home() {
+import TitleMain from '@/components/layout/TitleMain'
+
+export default async function Home() {
   return (
     <main className="w-full mx-auto">
-
-    {/* Header section */}
-    <div className="w-full mb-8 text-center">
-      <h1 className="text-4xl md:text-5xl">La Voie De L&rsquo;Info</h1>
-      <p className="text-lg">Votre fenêtre sur l&rsquo;actualité</p>
-    </div>
-
-  </main>
-  );
+      {/* Header section */}
+      <div className="w-full mb-8 text-center min-h-[200vh]">
+        <TitleMain />
+      </div>
+    </main>
+  )
 }

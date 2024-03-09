@@ -1,6 +1,7 @@
 'use server'
 
 import { dbConnect } from '@/lib/dbConnect'
+import Article from '@/lib/models/Article'
 import Category from '@/lib/models/Category'
 import Subcategory from '@/lib/models/Subcategory'
 
@@ -55,7 +56,7 @@ export const createSub = async () => {
 export const createCat = async () => {
   try {
     const newCCat = await Category.create({
-      name: 'ecologie',
+      name: 'politique',
       sub: ['65e19f848bbb02d4debb8420'],
     })
     return { msg: 'success' }
@@ -63,3 +64,39 @@ export const createCat = async () => {
     console.log(err)
   }
 }
+
+
+
+// export const getCategoryViews = async () => {
+//   try {
+//     const result = await Article.aggregate([
+//       {
+//         $group: {
+//           _id: '$category.id',  // Group by category id
+//           totalViews: { $sum: '$numberOfViews' },  // Sum the numberOfViews for each category
+//         },
+//       },
+//       {
+//         $lookup: {
+//           from: 'categories',  // The name of your categories collection
+//           localField: '_id',
+//           foreignField: '_id',
+//           as: 'category',
+//         },
+//       },
+//       {
+//         $unwind: '$category',
+//       },
+//       {
+//         $sort: { totalViews: -1 },  // Sort by totalViews in descending order
+//       },
+//     ]);
+
+//     return result;
+//   } catch (error) {
+//     console.error('Error:', error);
+//     throw error;
+//   }
+// };
+
+
