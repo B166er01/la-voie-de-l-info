@@ -81,11 +81,11 @@ export const registerWithCredential = async (data: IRegisterSchema) => {
 
 // Function for verifying the email based on the token
 export const verifyEmail = async (token: string) => {
-  console.log("toto")
+
   try {
     // Connect to the database
     await dbConnect()
-    console.log("toto")
+    
     // Verify the token
     const { user } = verifyToken(token)
 

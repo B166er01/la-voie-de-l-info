@@ -48,7 +48,6 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
     }
   }, [])
 
-  console.log(isMobileScreen)
 
   return (
     <>
