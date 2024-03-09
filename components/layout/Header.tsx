@@ -7,22 +7,29 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import RippleButton from '../buttons/RippleButton'
 import Sidebar from './Sidebar'
-import { useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
   const [showTitle, setShowTitle] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMobileScreen, setIsMobileScreen] = useState<boolean | null>(null)
 
+  // use router to get url , look if / if else
+
   const { data: session } = useSession()
-  const titleRef = useRef(null)
-  const headerRef = useRef(null)
+  const pathname = usePathname();
+
+
+  console.log(pathname)
+
+
+
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY
 
-      if (scrollY > 80) {
+      if (scrollY > 80 || pathname != "/") {
         setShowTitle(true)
       } else {
         setShowTitle(false)
@@ -46,7 +53,7 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [pathname])
 
 
   return (
@@ -59,7 +66,6 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
 
       <header
         className="fixed top-0 left-0 z-50 w-full h-[80px] bg-white"
-        ref={headerRef}
       >
         <nav className="relative flex items-center justify-between w-full h-full gap-3 p-3">
           {/* Left side */}
@@ -99,7 +105,6 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
             className={`absolute top-[200%] left-1/2 -translate-x-[50%]  text-6xl transition ${
               showTitle && '-translate-y-40 scale-75'
             } ${isMobileScreen && 'hidden'}`}
-            ref={titleRef}
           >
             <div className="w-full text-center">
               <h1 className="text-4xl lg:text-5xl">La Voie De L&rsquo;Info</h1>
