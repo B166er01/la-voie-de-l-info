@@ -4,10 +4,10 @@ import { TCategory } from '@/types'
 import { TextSearch } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import RippleButton from '../buttons/RippleButton'
 import Sidebar from './Sidebar'
-import { usePathname } from 'next/navigation'
 
 const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
   const [showTitle, setShowTitle] = useState(false)
@@ -17,19 +17,15 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
   // use router to get url , look if / if else
 
   const { data: session } = useSession()
-  const pathname = usePathname();
-
+  const pathname = usePathname()
 
   console.log(pathname)
-
-
-
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY
 
-      if (scrollY > 80 || pathname != "/") {
+      if (scrollY > 80 || pathname != '/') {
         setShowTitle(true)
       } else {
         setShowTitle(false)
@@ -55,7 +51,6 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
     }
   }, [pathname])
 
-
   return (
     <>
       <Sidebar
@@ -64,14 +59,14 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
         cat={cat}
       />
 
-      <header
-        className="fixed top-0 left-0 z-50 w-full h-[80px] bg-white"
-      >
+      <header className="fixed top-0 left-0 z-50 w-full h-[80px] bg-white">
         <nav className="relative flex items-center justify-between w-full h-full gap-3 p-3">
           {/* Left side */}
           <div
             className={`${
-              showTitle && !isMobileScreen? '' : 'flex flex-grow gap-6 items-center'
+              showTitle && !isMobileScreen
+                ? ''
+                : 'flex flex-grow gap-6 items-center'
             }`}
           >
             <TextSearch
@@ -82,12 +77,14 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
             />
 
             {isMobileScreen ? (
-              <p className='hidden text-2xl sm:inline-block'>La Voie De L&rsquo;Info</p>
+              <p className="hidden text-2xl sm:inline-block">
+                La Voie De L&rsquo;Info
+              </p>
             ) : (
               <div className={`${showTitle ? 'hidden' : 'flex flex-grow '}`}>
                 <ul className="hidden gap-4 text-xl capitalize lg:text-2xl lg:flex">
                   {cat?.map((c, i) => (
-                    <li key={i}>
+                    <li key={i} className='underlineEffect'>
                       <Link
                         href={`/articles?category=${c.name}`}
                         onClick={() => setIsMenuOpen(false)}
@@ -106,10 +103,10 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
               showTitle && '-translate-y-40 scale-75'
             } ${isMobileScreen && 'hidden'}`}
           >
-            <div className="w-full text-center">
+            <Link href={"/"} className="w-full text-center">
               <h1 className="text-4xl lg:text-5xl">La Voie De L&rsquo;Info</h1>
               <p className="text-lg">Votre fenêtre sur l&rsquo;actualité</p>
-            </div>
+            </Link>
           </div>
 
           {/* Right side */}

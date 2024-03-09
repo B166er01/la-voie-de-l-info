@@ -8,3 +8,16 @@
     opacity: 0;
   }
 }
+
+@layer utilities {
+  .underlineEffect {
+    @apply relative;
+  }
+
+  .underlineEffect::after {
+    @apply content-[''] absolute bg-blue-950 h-[1px] w-[0%] left-0 -bottom-1 duration-200;
+  }
+  .underlineEffect:hover::after {
+    @apply w-[100%];
+  }
+}

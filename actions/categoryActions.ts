@@ -56,7 +56,7 @@ export const createSub = async () => {
 export const createCat = async () => {
   try {
     const newCCat = await Category.create({
-      name: 'politique',
+      name: 'culture',
       sub: ['65e19f848bbb02d4debb8420'],
     })
     return { msg: 'success' }
