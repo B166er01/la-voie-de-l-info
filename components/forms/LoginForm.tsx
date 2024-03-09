@@ -55,7 +55,7 @@ const LoginForm = () => {
             type="email"
             id="email"
             placeholder="Email"
-            className="relative  z-10 w-full p-2 bg-transparent border-2 text-lg rounded outline-none peer  placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] focus:border-primaryBlue"
+            className="relative  z-10 w-full p-2 bg-transparent border-2 text-lg rounded outline-none peer placeholder:text-transparent autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)] focus:border-primaryBlue"
           />
           <label
             htmlFor="email"

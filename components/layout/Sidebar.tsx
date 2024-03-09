@@ -71,7 +71,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
                 </Link>
                 {currentCategory === link.name && link.sub.length > 0 && (
                   <div
-                    className="absolute right-0 top-[50%] transform translate-x-[100%] translate-y-[-50%] flex flex-col capitalize"
+                    className="absolute right-0 top-[50%] transform lg:translate-x-[100%] translate-x-[95%] translate-y-[-50%] flex flex-col capitalize"
                     onMouseEnter={() => handleMouseEnter(link.name)}
                     onMouseLeave={handleMouseLeave}
                   >
