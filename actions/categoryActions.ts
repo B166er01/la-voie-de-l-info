@@ -68,6 +68,7 @@ export const createCat = async () => {
 
 
 export const getCategoryViews = async () => {
+  await dbConnect()
   try {
     const result = await Category.aggregate([
       {
