@@ -24,7 +24,7 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
       const scrollPosition = window.scrollY
 
       // Check if the scroll position is greater than 1
-      if (scrollPosition > 100) {
+      if (scrollPosition > 230) {
         setIsScrolled(true)
         controls.start({ opacity: 0, transition: { duration: 0.2 } })
         controls2.start({ opacity: 1, transition: { duration: 0.2 } }); // Inverse opacity for controls2
