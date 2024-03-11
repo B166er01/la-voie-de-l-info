@@ -25,7 +25,7 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
     const handleScroll = () => {
       const scrollY = window.scrollY
 
-      if (scrollY > 80 || pathname != '/') {
+      if (scrollY > 1 || pathname != '/') {
         setShowTitle(true)
       } else {
         setShowTitle(false)
@@ -100,7 +100,7 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
 
           <div
             className={`absolute top-[200%] left-1/2 -translate-x-[50%]  text-6xl transition ${
-              showTitle && '-translate-y-40 scale-75'
+              showTitle && '-translate-y-[154px] scale-75'
             } ${isMobileScreen && 'hidden'}`}
           >
             <Link href={"/"} className="w-full text-center">
