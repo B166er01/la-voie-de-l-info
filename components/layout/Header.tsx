@@ -25,15 +25,15 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
 
       // Check if the scroll position is greater than 1
       if (scrollPosition > 100) {
-        controls.start({ opacity: 0, transition: { duration: 0.5 } })
-        controls2.start({ opacity: 1, transition: { duration: 0.5 } }); // Inverse opacity for controls2
-        // Set the state to true
         setIsScrolled(true)
+        controls.start({ opacity: 0, transition: { duration: 0.2 } })
+        controls2.start({ opacity: 1, transition: { duration: 0.2 } }); // Inverse opacity for controls2
+        // Set the state to true
       } else {
+        setIsScrolled(false)
         controls.start({ opacity: 1 })
         controls2.start({ opacity: 0 });
         // Set the state to false
-        setIsScrolled(false)
       }
     }
 
@@ -44,7 +44,7 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [controls, controls2]) // Empty dependency array ensures the effect runs only once on mount
+  }, []) // Empty dependency array ensures the effect runs only once on mount
 
   return (
     <>

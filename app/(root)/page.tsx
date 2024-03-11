@@ -3,25 +3,21 @@ import { getCategoryViews } from '@/actions/categoryActions'
 import MainGutter from '@/components/MainGutter'
 import MainCard from '@/components/cards/MainCard'
 
-
 export default async function Home() {
   const articles = await getArticles({ limit: 6 })
-
-
-
 
   //  await createCat()
   return (
     <main className="w-full mx-auto">
       {/* Header section */}
-      <div className="w-full lg:mb-[300px] text-center">
-        <div>
-            <div className="w-full text-center">
-              <h1 className="text-5xl">La Voie De L&rsquo;Info</h1>
-              <p className="text-base">Votre fenêtre sur l&rsquo;actualité</p>
-            </div>
+
+    
+          <div className="w-full text-center py-12 lg:py-14">
+            <h1 className="text-5xl lg:text-6xl">La Voie De L&rsquo;Info</h1>
+            <p className="text-base">Votre fenêtre sur l&rsquo;actualité</p>
           </div>
-      </div>
+
+      
 
       {/* Main content section */}
       <div className="relative flex justify-center h-auto gap-6 mx-auto z-5 lg:justify-start">
@@ -39,7 +35,6 @@ export default async function Home() {
           <MainGutter />
         </div>
       </div>
-
     </main>
   )
 }
