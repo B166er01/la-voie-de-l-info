@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const MainCard = ({ article }: { article: TArticle }) => {
 
-  console.log(article)
+
   return (
     <div className="flex flex-col max-w-screen-sm p-3 mx-auto mt-6 lg:max-w-screen-2xl lg:flex-row-reverse font-FrankRuhlLibre">
       <Link

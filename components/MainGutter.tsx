@@ -5,7 +5,7 @@ const MainGutter = async () => {
   const articles = await getArticles({ limit: 4 })
 
   return (
-    <div className="w-[250px] min-h-screen">
+    <div className="w-[250px] min-h-screen ">
       <p className="pb-8 text-3xl capitalize">derniers articles</p>
       <ul>
         {articles.data?.map((a, i) => (

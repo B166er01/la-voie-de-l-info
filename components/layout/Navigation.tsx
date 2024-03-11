@@ -1,12 +1,13 @@
-import { getCategories } from '@/actions/categoryActions'
+import { getCategories, getCategoryViews } from '@/actions/categoryActions'
 import Header from './Header'
 
 const Navigation = async () => {
-  const category = await getCategories()
+  const cat = await getCategoryViews()
 
+  console.log(cat)
   return (
     <div>
-      <Header cat={category} />
+      <Header cat={cat} />
     </div>
   )
 }

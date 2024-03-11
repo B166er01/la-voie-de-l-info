@@ -4,52 +4,47 @@ import { TCategory } from '@/types'
 import { TextSearch } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { motion, useAnimation } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import RippleButton from '../buttons/RippleButton'
 import Sidebar from './Sidebar'
 
 const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
-  const [showTitle, setShowTitle] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isMobileScreen, setIsMobileScreen] = useState<boolean | null>(null)
-
+  const controls = useAnimation()
+  const controls2 = useAnimation(); // Add a second animation control
   // use router to get url , look if / if else
 
   const { data: session } = useSession()
-  const pathname = usePathname()
 
-  console.log(pathname)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY
+      const scrollPosition = window.scrollY
 
-      if (scrollY > 1 || pathname != '/') {
-        setShowTitle(true)
+      // Check if the scroll position is greater than 1
+      if (scrollPosition > 100) {
+        controls.start({ opacity: 0, transition: { duration: 0.5 } })
+        controls2.start({ opacity: 1, transition: { duration: 0.5 } }); // Inverse opacity for controls2
+        // Set the state to true
+        setIsScrolled(true)
       } else {
-        setShowTitle(false)
+        controls.start({ opacity: 1 })
+        controls2.start({ opacity: 0 });
+        // Set the state to false
+        setIsScrolled(false)
       }
     }
 
-    const handleResize = () => {
-      setIsMobileScreen(window.innerWidth <= 1024)
-    }
-
-    // Initial setup
-    handleScroll()
-    handleResize()
-
-    // Event listeners
+    // Attach the event listener to the window
     window.addEventListener('scroll', handleScroll)
-    window.addEventListener('resize', handleResize)
 
-    // Cleanup
+    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleResize)
     }
-  }, [pathname])
+  }, [controls, controls2]) // Empty dependency array ensures the effect runs only once on mount
 
   return (
     <>
@@ -59,16 +54,10 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
         cat={cat}
       />
 
-      <header className="fixed top-0 left-0 z-50 w-full h-[80px] bg-white">
+      <header className="fixed top-0 left-0 z-50 w-full h-[80px] bg-white border-b-2">
         <nav className="relative flex items-center justify-between w-full h-full gap-3 p-3">
           {/* Left side */}
-          <div
-            className={`${
-              showTitle && !isMobileScreen
-                ? ''
-                : 'flex flex-grow gap-6 items-center'
-            }`}
-          >
+          <div className="flex flex-grow gap-6 items-center">
             <TextSearch
               size={28}
               strokeWidth={1}
@@ -76,38 +65,47 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
               className="cursor-pointer"
             />
 
-            {isMobileScreen ? (
-              <p className="hidden text-2xl sm:inline-block">
-                La Voie De L&rsquo;Info
-              </p>
-            ) : (
-              <div className={`${showTitle ? 'hidden' : 'flex flex-grow '}`}>
-                <ul className="hidden gap-4 text-xl capitalize lg:text-2xl lg:flex">
-                  {cat?.map((c, i) => (
-                    <li key={i} className='underlineEffect'>
-                      <Link
-                        href={`/articles?category=${c.name}`}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {c.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <motion.div
+              className={`flex-grow hidden  ${
+                !isScrolled && 'lg:inline-block'
+              }`}
+              initial={{ opacity: 1 }}
+              animate={controls}
+            >
+              <ul className="hidden gap-4 text-xl capitalize lg:text-2xl lg:flex">
+                {cat?.map((c, i) => (
+                  <li key={i} className="underlineEffect">
+                    <Link
+                      href={`/articles?category=${c.name}`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <div
+              className="lg:hidden text-2xl hidden sm:inline-block"
+      
+            >
+              La Voie De L&rsquo;Info
+            </div>
           </div>
 
-          <div
-            className={`absolute top-[200%] left-1/2 -translate-x-[50%]  text-6xl transition ${
-              showTitle && '-translate-y-[154px] scale-75'
-            } ${isMobileScreen && 'hidden'}`}
+          <motion.div
+            className={`absolute top-4 left-1/2 -translate-x-[50%] hidden ${
+              isScrolled && 'lg:inline'
+              }`}
+              initial={{ opacity: 0 }}
+              animate={controls2}
           >
-            <Link href={"/"} className="w-full text-center">
-              <h1 className="text-4xl lg:text-5xl">La Voie De L&rsquo;Info</h1>
-              <p className="text-lg">Votre fenêtre sur l&rsquo;actualité</p>
+            <Link href={'/'} className="w-full text-center">
+              <h1 className="text-3xl">La Voie De L&rsquo;Info</h1>
+              <p className="text-sm">Votre fenêtre sur l&rsquo;actualité</p>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Right side */}
           <div className="flex gap-3">

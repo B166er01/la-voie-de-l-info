@@ -81,6 +81,8 @@ const Sidebar: React.FC<ISidebarProps> = ({
                     {/* Apply overflow-y-scroll here */}
                     <ul className="bg-white min-w-[160px] border">
                       {link.sub.map((subcategory, subIndex) => (
+
+                        
                         <li key={subIndex} className="flex bg-white">
                           <Link
                             href={`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/articles?category=${link.name}&subcategory=${subcategory.name}`}

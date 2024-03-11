@@ -1,18 +1,26 @@
 import { getArticles } from '@/actions/articlesActions'
+import { getCategoryViews } from '@/actions/categoryActions'
 import MainGutter from '@/components/MainGutter'
 import MainCard from '@/components/cards/MainCard'
-import TitleMain from '@/components/layout/TitleMain'
+
 
 export default async function Home() {
   const articles = await getArticles({ limit: 6 })
 
-  console.log(articles)
+
+
+
   //  await createCat()
   return (
     <main className="w-full mx-auto">
       {/* Header section */}
       <div className="w-full lg:mb-[300px] text-center">
-        <TitleMain />
+        <div>
+            <div className="w-full text-center">
+              <h1 className="text-5xl">La Voie De L&rsquo;Info</h1>
+              <p className="text-base">Votre fenêtre sur l&rsquo;actualité</p>
+            </div>
+          </div>
       </div>
 
       {/* Main content section */}
@@ -27,7 +35,7 @@ export default async function Home() {
         </ul>
 
         {/* Sidebar section (sticky) */}
-        <div className="sticky z-0 h-screen top-24 w-[250px] min-h-screen hidden 2xl:inline-block">
+        <div className="sticky z-0 h-screen  w-[250px] min-h-screen hidden 2xl:inline-block mt-8 top-24">
           <MainGutter />
         </div>
       </div>

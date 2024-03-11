@@ -67,36 +67,56 @@ export const createCat = async () => {
 
 
 
-// export const getCategoryViews = async () => {
-//   try {
-//     const result = await Article.aggregate([
-//       {
-//         $group: {
-//           _id: '$category.id',  // Group by category id
-//           totalViews: { $sum: '$numberOfViews' },  // Sum the numberOfViews for each category
-//         },
-//       },
-//       {
-//         $lookup: {
-//           from: 'categories',  // The name of your categories collection
-//           localField: '_id',
-//           foreignField: '_id',
-//           as: 'category',
-//         },
-//       },
-//       {
-//         $unwind: '$category',
-//       },
-//       {
-//         $sort: { totalViews: -1 },  // Sort by totalViews in descending order
-//       },
-//     ]);
+export const getCategoryViews = async () => {
+  try {
+    const result = await Category.aggregate([
+      {
+        $lookup: {
+          from: 'articles', // Use the actual name of your "Article" collection
+          localField: '_id',
+          foreignField: 'category.id',
+          as: 'articles',
+        },
+      },
+      {
+        $addFields: {
+          totalViews: { $sum: '$articles.numberOfViews' },
+        },
+      },
+      {
+        $lookup: {
+          from: 'subcategories', // Use the actual name of your "Subcategory" collection
+          localField: 'sub',
+          foreignField: '_id',
+          as: 'subcategories',
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          sub: {
+            $map: {
+              input: '$subcategories',
+              as: 'sub',
+              in: {
+                id: '$$sub._id',
+                name: '$$sub.name', // Assuming "title" is the field you want to include
+              },
+            },
+          },
+        },
+      },
+      {
+        $sort: { totalViews: -1 },
+      },
+    ]);
 
-//     return result;
-//   } catch (error) {
-//     console.error('Error:', error);
-//     throw error;
-//   }
-// };
+    return JSON.parse(JSON.stringify(result))
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
+};
 
 

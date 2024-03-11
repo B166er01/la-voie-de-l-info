@@ -19,7 +19,7 @@ const VerifyPage = ({ searchParams }: { searchParams: { token: string } }) => {
         try {
           const res = await verifyEmail(token)
 
-          console.log(res, "resftfyf")
+         // console.log(res, "resftfyf")
           // If registration is successful, redirect to login page
           if (res.msg === 'Verification success') {
             setVerificationStatus('success')
