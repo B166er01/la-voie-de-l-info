@@ -18,33 +18,32 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
   const { data: session } = useSession()
 
   const [isScrolled, setIsScrolled] = useState(false)
+useEffect(() => {
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY
-
-      // Check if the scroll position is greater than 1
-      if (scrollPosition > 230) {
-        setIsScrolled(true)
-        controls.start({ opacity: 0, transition: { duration: 0.2 } })
-        controls2.start({ opacity: 1, transition: { duration: 0.2 } }); // Inverse opacity for controls2
-        // Set the state to true
-      } else {
-        setIsScrolled(false)
-        controls.start({ opacity: 1 })
-        controls2.start({ opacity: 0 });
-        // Set the state to false
-      }
+    // Check if the scroll position is greater than 1
+    if (scrollPosition > 250) {
+      setIsScrolled(true);
+      controls.start({ opacity: 0, transition: { duration: 0.2 } });
+      controls2.start({ opacity: 1, transition: { duration: 0.2 } });
+      // Set the state to true
+    } else {
+      setIsScrolled(false);
+      controls.start({ opacity: 1 });
+      controls2.start({ opacity: 0 });
+      // Set the state to false
     }
+  };
 
-    // Attach the event listener to the window
-    window.addEventListener('scroll', handleScroll)
+  // Attach the event listener to the window
+  window.addEventListener('scroll', handleScroll);
 
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, []) // Empty dependency array ensures the effect runs only once on mount
+  // Clean up the event listener on component unmount
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, [controls, controls2]); // Include controls and controls2 in the dependency array
 
   return (
     <>

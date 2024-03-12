@@ -25,7 +25,7 @@ const MainCard = ({ article }: { article: TArticle }) => {
       <div className="flex flex-col pr-3 lg:w-1/2 lg:justify-between">
         <Link
           href={`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/article/${article.slug}`}
-          className="my-6 text-3xl leading-snug font-large xl:leading-tight xl:text-4xl lg:my-0 line-clamp-2 "
+          className="my-6 text-3xl leading-snug font-large xl:leading-tight xl:text-4xl lg:my-0 "
         >
           {article.title}
         </Link>
