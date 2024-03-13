@@ -1,6 +1,7 @@
 import { getArticles } from '@/actions/articlesActions'
 import { getCategoryViews } from '@/actions/categoryActions'
 import MainGutter from '@/components/MainGutter'
+import Scrolltop from '@/components/buttons/Scrolltop'
 
 import MainCard from '@/components/cards/MainCard'
 import Slideer from '@/components/slider/Slideer'
@@ -57,6 +58,7 @@ export default async function Home() {
           <MainGutter />
         </div>
       </div>
+      <Scrolltop />
     </main>
   )
 }

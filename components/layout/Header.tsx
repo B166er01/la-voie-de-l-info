@@ -111,21 +111,21 @@ useEffect(() => {
             <Link href="/subscribe">
               <RippleButton
                 text="S'abonner"
-                buttonClasses="rounded-full text-white py-[2px] px-3 border border-primaryBlue bg-primaryBlue lg:text-lg"
+                buttonClasses="rounded-lg text-white py-[2px] px-3 border border-primaryBlue bg-primaryBlue lg:text-lg"
               />
             </Link>
             {session?.user ? (
               <Link href={`/profile/${session.user.userId}`}>
                 <RippleButton
                   text="Profile"
-                  buttonClasses="rounded-full py-1 border border-primaryBlue py-[2px] px-3 bg-white text-primaryBlue lg:text-lg"
+                  buttonClasses="rounded-lg py-1 border border-primaryBlue py-[2px] px-3 bg-white text-primaryBlue lg:text-lg"
                 />
               </Link>
             ) : (
               <Link href="/login">
                 <RippleButton
                   text="Connexion"
-                  buttonClasses="rounded-full py-1 border border-primaryBlue py-[2px] px-3 bg-white text-primaryBlue lg:text-lg"
+                  buttonClasses="rounded-lg py-1 border border-primaryBlue py-[2px] px-3 bg-white text-primaryBlue lg:text-lg"
                 />
               </Link>
             )}
