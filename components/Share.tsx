@@ -14,11 +14,11 @@ const Share = () => {
 
   return (
     <div className="flex gap-2 mt-3">
-      <FacebookShareButton url={`${baseUrl}${pathname}`}>
+      <FacebookShareButton url={`${baseUrl}${pathname}`} aria-label="buy product">
         <FacebookIcon size={35} borderRadius={10} />
       </FacebookShareButton>
 
-      <TwitterShareButton url={`${baseUrl}${pathname}`}>
+      <TwitterShareButton url={`${baseUrl}${pathname}`} aria-label="buy product">
         <XIcon size={35} borderRadius={10} />
       </TwitterShareButton>
     </div>
