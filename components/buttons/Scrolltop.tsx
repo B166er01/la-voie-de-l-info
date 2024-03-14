@@ -44,7 +44,7 @@ const Scrolltop = () => {
         animate={{opacity:1}}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className='fixed bottom-4  right-4 z-50 w-10 h-10 lg:w-12 lg:h-12 bg-primaryBlue rounded-lg flex items-center justify-center'
+        className='fixed bottom-4  right-4 z-50 w-10 h-10  bg-primaryBlue rounded-lg flex items-center justify-center'
       >
         <ChevronsUp strokeWidth={1} className='text-white w-8 h-8' />
       </motion.button>

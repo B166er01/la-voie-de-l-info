@@ -141,7 +141,7 @@ const Slideer= ({ articles }: {articles: TArticle[] | undefined }) => {
 
 
     return (
-        <div className="mt-10 mb-12 mx-6">
+        <div className="mt-10 mb-12 mx-6 w-full">
             <h2 className="text-3xl">Sports</h2>
             <div className="relative overflow-hidden h-[340px] z-10 w-full my-6 mx-auto px-5" ref={sliderContainerRef}>
                 <div className="absolute top-0 flex gap-6 py-3 transition-transform duration-500 ease-out" ref={sliderRef}>

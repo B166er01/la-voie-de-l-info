@@ -39,7 +39,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
           <Link href="/subscribe">
             <RippleButton
               text="Subscribe"
-              buttonClasses="rounded-full text-white py-2 border  px-3 bg-primaryBlue w-full mt-6 text-lg lg:text-xl"
+              buttonClasses="rounded-lg text-white py-2 border  px-3 bg-primaryBlue w-full mt-6 text-lg lg:text-xl"
               onClick={() => setIsMenuOpen(false)}
             />
           </Link>
