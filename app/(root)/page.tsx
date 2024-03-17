@@ -1,6 +1,7 @@
 import { getArticles } from '@/actions/articlesActions'
 import { getCategoryViews } from '@/actions/categoryActions'
 import MainGutter from '@/components/MainGutter'
+import Test from '@/components/Test'
 import Scrolltop from '@/components/buttons/Scrolltop'
 
 import MainCard from '@/components/cards/MainCard'
@@ -60,6 +61,8 @@ export default async function Home() {
           <MainGutter />
         </div>
       </div>
+
+      <Test articles={articles.data?.slice(0, 4) } />
       <Scrolltop />
     </main>
   )

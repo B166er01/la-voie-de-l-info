@@ -14,7 +14,6 @@ const updateUserSubscription = async (session: any) => {
 
   try {
     updateUserStatus(customerEmail, subscriptionNumber)
-    console.log('zz')
   } catch (err) {
     console.log(err)
   }
@@ -30,6 +29,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     event = stripe.webhooks.constructEvent(text, sig, webhookSecret)
   } catch (err) {
     // On error, log and return the error message
+    console.log(err)
     return NextResponse.error()
   }
   console.log('received ', event.type)

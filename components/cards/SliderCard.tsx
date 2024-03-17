@@ -4,7 +4,7 @@ import React from 'react'
 
 
 
-const SliderCard = ({ images, title }: {images: TImage[], title: string}) => {
+const SliderCard = ({ images, title }: {images: TImage[], title: string}, size: string) => {
 
   return (
       <div className='w-[320px] h-[280px]'>
